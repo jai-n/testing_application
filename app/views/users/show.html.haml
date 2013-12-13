@@ -1,0 +1,20 @@
+%table
+  %tr
+    %th First Name
+    %th Last Name
+    %th School
+    %th Role
+    %th Group
+    %th Phone
+    %th Email
+  %tr
+    %td= @user.first_name
+    %td= @user.last_name
+    %td= @user.school
+    %td= @user.role
+    %td= @user.group
+    %td= @user.phone
+    %td= @user.email
+    - if can? :update, current_user
+      %td= link_to "Edit My acccount", edit_user_registration_path
+= link_to "Back", :back

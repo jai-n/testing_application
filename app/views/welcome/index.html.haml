@@ -1,0 +1,5 @@
+%h1 Welcome#index
+%p Find me in app/views/welcome/index.html.erb
+- if can? :update, current_user
+  = link_to "Edit My acccount", edit_user_registration_path
+  = link_to "Show My profile", profile_path(current_user)
