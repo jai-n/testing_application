@@ -1,0 +1,40 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @my_school.name
+%p
+  %strong Website url:
+  = @my_school.website_url
+%p
+  %strong Company name:
+  = @my_school.company_name
+%p
+  %strong Contact name:
+  = @my_school.contact_name
+%p
+  %strong Email:
+  = @my_school.email
+%p
+  %strong Phone number:
+  = @my_school.phone_number
+%p
+  %strong Vat number:
+  = @my_school.vat_number
+%p
+  %strong Address:
+  = @my_school.address
+%p
+  %strong City:
+  = @my_school.city
+%p
+  %strong Post code:
+  = @my_school.post_code
+%p
+  %strong Note:
+  = @my_school.note
+%p
+  %strong Active:
+  = @my_school.active
+= link_to 'Edit', edit_my_school_path(@my_school)
+|
+\#{link_to 'Back', my_schools_path}

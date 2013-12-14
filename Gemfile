@@ -45,6 +45,6 @@ gem 'capistrano', group: :development
 gem 'debugger', group: [:development, :test]
 gem 'devise'
 gem 'cancan'
-# gem 'table_for_collection'
+gem 'table_for_collection'
 gem 'rails_admin'
 gem 'haml'

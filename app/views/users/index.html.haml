@@ -1,0 +1,14 @@
+= table_for @users do
+  - column :title => "Full Name" do |user|
+    - [user.first_name, user.last_name].join(" ")
+  - column :role, :default => "Student"
+  - column :school
+  - column :group
+  - column :phone
+  - column :email do |email|
+    - mail_to email
+  - column :created_at, :time_format => "%Y-%m-%d"
+  - column :title => "Actions" do |user|
+    - [link_to("Show", profile_path(user)),link_to("Edit", edit_user_path(user)), link_to("Delete", user, :method => :delete, data: { confirm: 'Are you sure?' })].join(" | ").html_safe
+= link_to 'Add new user', new_user_path
+= link_to 'Back', root_path

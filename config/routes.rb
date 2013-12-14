@@ -1,9 +1,14 @@
 School::Application.routes.draw do
   
+  resources :my_schools
+
+  
   # get "welcome/index"
   # get "registrations/create"
   devise_for :users,:controllers => {:registrations => "registrations"}
   get "profile/:id" => "users#show",:as=>"profile"
+  get "manage_user" => "users#index"
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
