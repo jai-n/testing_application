@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	has_one :my_school, through: :user_school    
+	has_one :my_school, through: :user_school  
+	has_one :user_school
+	accepts_nested_attributes_for :user_school  
 end

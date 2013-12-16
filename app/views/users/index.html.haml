@@ -2,7 +2,8 @@
   - column :title => "Full Name" do |user|
     - [user.first_name, user.last_name].join(" ")
   - column :role, :default => "Student"
-  - column :school
+  - column :title => "School Name" do |school|
+    - school.my_school.blank? ? "No School" : school.my_school.name
   - column :group
   - column :phone
   - column :email do |email|

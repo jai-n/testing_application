@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => :show
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update_user, :destroy]
 
   # GET /users
   # GET /users.json
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.build_user_school
   end
 
   # GET /users/1/edit
@@ -25,7 +26,11 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create
+  def new_user
+    password_length = 8
+    password = Devise.friendly_token.first(password_length)
+    params[:user][:password] = password
+    params[:user][:password_confirmation] = password
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -41,7 +46,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
-  def update
+  def update_user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -71,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:school, :role, :phone, :group, :first_name, :last_name, :email)
+      params.require(:user).permit(:password, :password_confirmation, :role, :phone, :group, :first_name, :last_name, :email,user_school_attributes:[:my_school_id])
     end
 end

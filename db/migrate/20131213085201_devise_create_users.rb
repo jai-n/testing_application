@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :group
       t.string :role
-      t.string :school
+      # t.string :school
       t.string :phone
 
       t.timestamps

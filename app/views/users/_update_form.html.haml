@@ -1,4 +1,4 @@
-= simple_form_for @user,:url=>create_new_user_path do |f|
+= simple_form_for @user,:url=>change_user_path(@user),:method=>:put do |f|
   - if @user.errors.any?
     #error_explanation
       %h2
@@ -14,12 +14,9 @@
   .field
     = f.label :last_name
     %br
-      = f.text_field :last_name
-  .field 
-    = f.label "School" 
-    %br
-      = f.fields_for :user_school do |posts_form|
-        = posts_form.select :my_school_id,MySchool.all.map { |r| [r.name, r.id] },:label=>"School"
+      = f.text_field :last_name  
+  = f.fields_for :user_school do |posts_form|
+    = posts_form.select :my_school_id,MySchool.all.map { |r| [r.name, r.id] }
   .field
     = f.label :role
     %br

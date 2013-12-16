@@ -10,11 +10,13 @@
   %tr
     %td= @user.first_name
     %td= @user.last_name
-    %td= @user.school
+    %td= @user.my_school.blank? ? "No School" : @user.my_school.name
     %td= @user.role
     %td= @user.group
     %td= @user.phone
     %td= @user.email
     - if can? :update, current_user
-      %td= link_to "Edit My acccount", edit_user_registration_path
+      %td= link_to "Edit", edit_user_path
+    - if can? :update, current_user
+      %td= link_to "Delete", user_path  , method: :delete, data: { confirm: 'Are you sure?' }
 = link_to "Back", :back
