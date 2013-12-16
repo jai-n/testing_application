@@ -10,10 +10,11 @@
     = f.label :last_name
     %br/
     = f.text_field :last_name
-  %div
-    = f.label :school
-    %br/
-    = f.text_field :school
+  //%div
+  //  = f.label "School" 
+  //  %br
+  //    = f.fields_for :user_school do |posts_form|
+  //      = posts_form.select :my_school_id,MySchool.all.map { |r| [r.name, r.id] },:label=>"School"
   %div
     = f.label :role
     %br/
