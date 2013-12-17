@@ -5,11 +5,11 @@ require File.expand_path('../application', __FILE__)
 School::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'jai.n@cisinlabs.com',
-  :password => 'download123',
-  :domain => 'example.com',
-  :address => 'smtp.sendgrid.net',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      'jai.n@cisinlabs.com',
+    :password =>       'z2YjLCdx5HyICTbaTnzaBA',
+    :domain =>         'heroku.com',
+    :authentication => :plain
 }
+ActionMailer::Base.delivery_method = :smtp
