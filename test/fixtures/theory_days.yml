@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2013-12-17 16:53:09
+  start_time: 2013-12-17 16:53:09
+  end_time: 2013-12-17 16:53:09
+  repeat_weekly: 1
+  school_class_id: 
+
+two:
+  start_date: 2013-12-17 16:53:09
+  start_time: 2013-12-17 16:53:09
+  end_time: 2013-12-17 16:53:09
+  repeat_weekly: 1
+  school_class_id: 

@@ -1,0 +1,26 @@
+%h1 Listing theory_days
+%table
+  %thead
+    %tr
+      %th Start date
+      %th Start time
+      %th End time
+      %th Repeat weekly
+      %th School class
+      %th
+      %th
+      %th
+  %tbody
+    - @theory_days.each do |theory_day|
+      %tr
+        %td= theory_day.start_date
+        %td= theory_day.start_time
+        %td= theory_day.end_time
+        %td= theory_day.repeat_weekly
+        %td= theory_day.school_class.name
+        %td= link_to 'Show', theory_day
+        %td= link_to 'Edit', edit_theory_day_path(theory_day)
+        %td= link_to 'Destroy', theory_day, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+  = link_to 'New Theory day', new_theory_day_path
+  = link_to 'Back', root_path
