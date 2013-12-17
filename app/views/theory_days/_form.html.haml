@@ -1,0 +1,10 @@
+= simple_form_for(@theory_day) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :start_date
+    = f.input :start_time
+    = f.input :end_time
+    = f.input :repeat_weekly, collection: (1...10).each { |x| puts x }, include_blank: false
+    = f.association :school_class, include_blank: false
+  .form-actions
+    = f.button :submit
