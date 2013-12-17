@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
 	has_one :my_school, through: :user_school  
 	has_one :user_school
+	has_and_belongs_to_many :school_classes
 	accepts_nested_attributes_for :user_school  
 	
 	# after_create :send_welcome_mail

@@ -29,11 +29,11 @@ development:
 #   password:
 #   socket: /opt/lampp/var/mysql/mysql.sock
 
-# production:
-#   adapter: mysql2
-#   encoding: utf8
-#   database: school_production
-#   pool: 5
-#   username: root
-#   password:
-#   socket: /opt/lampp/var/mysql/mysql.sock
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: school_development
+  pool: 5
+  username: root
+  password:
+  socket: /opt/lampp/var/mysql/mysql.sock
