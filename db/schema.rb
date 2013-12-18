@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214093035) do
+ActiveRecord::Schema.define(version: 20131218140750) do
 
   create_table "my_schools", force: true do |t|
     t.string   "name"
@@ -29,6 +29,35 @@ ActiveRecord::Schema.define(version: 20131214093035) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+
+  create_table "school_classes", force: true do |t|
+    t.string   "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_school_id"
+  end
+
+  add_index "school_classes", ["user_school_id"], name: "index_school_classes_on_user_school_id", using: :btree
+
+  create_table "school_classes_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "school_class_id"
+  end
+
+  create_table "theory_days", force: true do |t|
+    t.datetime "start_date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "repeat_weekly"
+    t.integer  "school_class_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "theory_days", ["school_class_id"], name: "index_theory_days_on_school_class_id", using: :btree
 
   create_table "user_schools", force: true do |t|
     t.integer  "user_id"

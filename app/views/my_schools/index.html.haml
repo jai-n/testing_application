@@ -32,6 +32,8 @@
         %td= my_school.post_code
         %td= my_school.note
         %td= my_school.active
+        %td= link_to "Add Class", new_my_school_school_class_path(my_school)
+        %td= link_to "Edit Class", edit_my_school_school_class_path(my_school)
         %td= link_to 'Show', my_school
         %td= link_to 'Edit', edit_my_school_path(my_school)
         %td= link_to 'Destroy', my_school, method: :delete, data: { confirm: 'Are you sure?' }
