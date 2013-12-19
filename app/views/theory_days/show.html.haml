@@ -1,0 +1,18 @@
+%p
+  %strong Start date:
+  = @theory_day.start_date
+%p
+  %strong Start time:
+  = @theory_day.start_time
+%p
+  %strong End time:
+  = @theory_day.end_time
+%p
+  %strong Repeat weekly:
+  = @theory_day.repeat_weekly
+%p
+  %strong School class:
+  = @theory_day.school_class.name
+= link_to 'Edit', edit_theory_day_path(@theory_day)
+|
+\#{link_to 'Back', theory_days_path}

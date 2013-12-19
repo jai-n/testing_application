@@ -4,7 +4,8 @@ class SchoolClassesController < ApplicationController
   # GET /school_classes
   # GET /school_classes.json
   def index
-    @school_classes = SchoolClass.all
+    @my_school = MySchool.find(params[:my_school_id])
+    @school_classes = @my_school.school_classes
   end
 
   # GET /school_classes/1
@@ -15,8 +16,7 @@ class SchoolClassesController < ApplicationController
   # GET /school_classes/new
   def new
     @my_school = MySchool.find(params[:my_school_id])
-    @school_class = SchoolClass.new
-    # @school_class.build_user_school
+    @school_class = @my_school.school_classes.build
     @school_class.theory_days.build
     @school_class.users.build
     @users = User.not_admin
@@ -29,11 +29,10 @@ class SchoolClassesController < ApplicationController
   # POST /school_classes
   # POST /school_classes.json
   def create    
-
-    @school_class = SchoolClass.new(school_class_params)
+    @my_school = MySchool.find(params[:my_school_id])    
+    @school_class = @my_school.school_classes.build(school_class_params)
     
     respond_to do |format|
-       debugger
       if @school_class.save
         unless @school_class.users.blank?
           @school_class.users.each do |user|

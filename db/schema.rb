@@ -10,8 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 20131218140750) do
+ActiveRecord::Schema.define(version: 20131217112309) do
 
   create_table "my_schools", force: true do |t|
     t.string   "name"
@@ -30,14 +29,13 @@ ActiveRecord::Schema.define(version: 20131218140750) do
     t.datetime "updated_at"
   end
 
-
   create_table "school_classes", force: true do |t|
     t.string   "name"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_school_id"
+    t.integer  "my_school_id"
   end
 
   add_index "school_classes", ["user_school_id"], name: "index_school_classes_on_user_school_id", using: :btree
@@ -84,7 +82,6 @@ ActiveRecord::Schema.define(version: 20131218140750) do
     t.string   "last_name"
     t.string   "group"
     t.string   "role",                   default: "Student"
-    t.string   "school"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -92,5 +89,10 @@ ActiveRecord::Schema.define(version: 20131218140750) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_school_classes", force: true do |t|
+    t.integer "user_id"
+    t.integer "school_class_id"
+  end
 
 end

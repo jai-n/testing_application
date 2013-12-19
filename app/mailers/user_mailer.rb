@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
-  include SendGrid
+  # include SendGrid
   #send welcome mail with password
   def welcome_email(user,password,option = nil)
     @user = user

@@ -39,9 +39,9 @@
           %td= user_form.input :last_name
           %td= user_form.input :email
           - if user_form.object.password.blank?
-            - pwd = random_password
-            - user_form.object.password_confirmation = pwd
-            - user_form.object.password =  pwd
+            - @pwd = random_password
+            - user_form.object.password_confirmation = @pwd
+            - user_form.object.password =  @pwd
           %td= user_form.input :password, :input_html => { :value => user_form.object.password }
           %td
             = user_form.input :password_confirmation, :input_html => { :value => user_form.object.password }

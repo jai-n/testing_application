@@ -1,26 +1,26 @@
 School::Application.routes.draw do
   
   get "welcome/index"
-  resources :theory_days
-
   
   resources :my_schools do
     resources :school_classes
+    resources :theory_days
   end
   # get "welcome/index"
   # get "registrations/create"
-  devise_for :users,:controllers => {:registrations => "registrations"}
+  devise_for :users,:controllers => {:registrations => "registrations"}    
+  resources :users  
   get "profile/:id" => "users#show",:as=>"profile"
   get "manage_user" => "users#index"
-  
-  post "new_user" => "users#new_user",:as=>:create_new_user  
-  resources :users  
+  put "update_user/:id" => "users#update_user",:as=>:change_user,:controller=>"users"
+  post "new_user" => "users#new_user",:as=>:create_new_user
+  delete "destroy_user/:id" => "users#destroy",:as=>:destroy_user,:controller=>"users"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-put "update_user/:id" => "users#update_user",:as=>:change_user,:controller=>"users"
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

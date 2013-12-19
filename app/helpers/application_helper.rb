@@ -8,4 +8,3 @@ module ApplicationHelper
 		rand(9999999).to_s.center(8, rand(9).to_s)
 	end
 end
-

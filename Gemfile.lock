@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activerecord-hackery/ransack.git
-  revision: 2934d849f0501875acced1bb8661d9d900f79fba
+  revision: d3edb59d95241764c59cd5d4275cdd5b0b1de601
   branch: rails-4
   specs:
     ransack (0.7.3)
@@ -69,6 +69,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.31.0)
     execjs (2.0.2)
     font-awesome-rails (4.0.3.0)
       railties (>= 3.2, < 5.0)
@@ -82,7 +83,7 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.1.0)
+    jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
     json (1.8.1)
     kaminari (0.15.0)
@@ -92,6 +93,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-api (1.0.49)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
@@ -101,8 +105,11 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
-    nokogiri (1.6.0)
+    nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    notification-cis (0.0.4)
+      jquery-rails
+      railties
     orm_adapter (0.5.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
@@ -185,7 +192,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.0.0)
+    turbolinks (2.1.0)
       coffee-rails
     tzinfo (0.3.38)
     uglifier (2.3.3)
@@ -207,12 +214,10 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  mandrill-api
   mysql2
-<<<<<<< Updated upstream
-=======
   nested_form
   notification-cis
->>>>>>> Stashed changes
   rails (= 4.0.1)
   rails_admin
   ransack!

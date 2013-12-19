@@ -55,3 +55,4 @@ gem 'notification-cis'
 gem 'angularjs_scaffold'
 gem "nested_form"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
+
