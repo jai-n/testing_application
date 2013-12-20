@@ -51,3 +51,8 @@ gem 'haml'
 gem 'simple_form'
 gem 'mandrill-api'
 gem 'notification-cis'
+# gem 'angular-rails'
+gem 'angularjs_scaffold'
+gem "nested_form"
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
+

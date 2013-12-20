@@ -1,9 +1,11 @@
 School::Application.routes.draw do
   
-  resources :theory_days
-
-  resources :school_classes
-  resources :my_schools  
+  get "welcome/index"
+  
+  resources :my_schools do
+    resources :school_classes
+    resources :theory_days
+  end
   # get "welcome/index"
   # get "registrations/create"
   devise_for :users,:controllers => {:registrations => "registrations"}    

@@ -10,7 +10,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20131217112309) do
 
   create_table "my_schools", force: true do |t|
@@ -36,6 +35,14 @@ ActiveRecord::Schema.define(version: 20131217112309) do
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "my_school_id"
+  end
+
+  add_index "school_classes", ["user_school_id"], name: "index_school_classes_on_user_school_id", using: :btree
+
+  create_table "school_classes_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "school_class_id"
   end
 
   create_table "theory_days", force: true do |t|
