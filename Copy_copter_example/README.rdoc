@@ -1,28 +1,9 @@
-== README
+Server we  are use 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://aqueous-cove-4688.herokuapp.com/
 
-Things you may want to cover:
+Reference 
 
-* Ruby version
+http://railscasts.com/episodes/336-copycopter?view=asciicast
+http://stackoverflow.com/questions/17606997/copycopter-server-crashing-on-heroku-rails
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
