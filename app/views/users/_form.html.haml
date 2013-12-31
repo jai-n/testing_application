@@ -1,0 +1,40 @@
+= simple_form_for @user,:url=>create_new_user_path do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :first_name
+    %br
+      = f.text_field :first_name
+  .field
+    = f.label :last_name
+    %br
+      = f.text_field :last_name
+  .field 
+    = f.label "School" 
+    %br
+      = f.fields_for :user_school do |posts_form|
+        = posts_form.select :my_school_id,MySchool.all.map { |r| [r.name, r.id] },:label=>"School"
+  .field
+    = f.label :role
+    %br
+    = f.collection_select :role, User::ROLES, :to_s, :humanize
+  .field
+    = f.label :group
+    %br
+      = f.text_field :group  
+  .field
+    = f.label :phone
+    %br
+      = f.text_field :phone
+  .field
+    = f.label :email
+    %br
+      = f.text_field :email
+  .actions
+    = f.submit

@@ -1,0 +1,12 @@
+%p
+  %strong Name:
+  = @school_class.name
+%p
+  %strong Start date:
+  = @school_class.start_date
+%p
+  %strong End date:
+  = @school_class.end_date
+= link_to 'Edit', edit_school_class_path(@school_class)
+|
+\#{link_to 'Back', school_classes_path}

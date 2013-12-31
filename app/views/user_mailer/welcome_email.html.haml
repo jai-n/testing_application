@@ -1,0 +1,20 @@
+\!DOCTYPE html>
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Welcome to example.com, #{@user.first_name} #{@user.last_name}
+    %p
+      You have successfully signed up to example.com,
+      your username is: #{@user.email}
+      %br/
+      - unless @option.blank?
+        - pass = Devise.friendly_token.first(8)
+        and Your password is #{pass}
+        - @user.update_attributes( { :password => pass, :password_confirmation => pass })
+      - else
+        and Your password is: #{@password}
+    %p
+      To login to the site, just follow this link: #{@url}.
+    %p Thanks for joining and have a great day!

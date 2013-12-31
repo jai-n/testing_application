@@ -1,0 +1,56 @@
+= simple_nested_form_for [@my_school,@school_class] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    = f.input :start_date
+    = f.input :end_date
+    Teacher 
+    = select("teacher", "teacher", @users.collect{|p| [ p.first_name+' '+p.last_name, p.id ] }, {:include_blank => false})
+  %br
+    %table#theory_days{:border => "1"}
+      %tr
+        %th{:colspan=>5} Theory Days
+      %th Start Date
+      %th Start Time
+      %th End Time
+      %th Repeat Weekly
+      %th Action
+      = f.fields_for :theory_days, :wrapper => false do |task_form|
+        %tr.fields
+          %td= task_form.input :start_date,:label=>false
+          %td= task_form.input :start_time,:label=>false
+          %td= task_form.input :end_time,:label=>false
+          %td= task_form.input :repeat_weekly, collection: (1...10).each { |x| puts x }, include_blank: false,:label=>false
+          //%td=# task_form.association :school_class, include_blank: false,:label=>false
+          %td= task_form.link_to_remove "Remove"
+    %p= f.link_to_add "Add a theory days", :theory_days, :data => { :target => "#theory_days" }
+    %table#users{:border => "1"}
+      %tr
+        %th{:colspan=>6} Students
+      %th First Name
+      %th Last Name
+      %th Email
+      %th Password
+      %th Password Confirmation
+      %th Action
+      = f.fields_for :users, :wrapper => false do |user_form|
+        %tr.fields
+          %td= user_form.input :first_name
+          %td= user_form.input :last_name
+          %td= user_form.input :email
+          - if user_form.object.password.blank?
+            - @pwd = random_password
+            - user_form.object.password_confirmation = @pwd
+            - user_form.object.password =  @pwd
+          %td= user_form.input :password, :input_html => { :value => user_form.object.password }
+          %td
+            = user_form.input :password_confirmation, :input_html => { :value => user_form.object.password }
+            = user_form.input :role, :as => :hidden, :input_html => { :value => "student" }
+            = user_form.input :group, :as => :hidden, :input_html => { :value => "Not Known" }
+            - user_form.object.phone = random_phone if user_form.object.phone.blank?
+            = user_form.input :phone, :as => :hidden#, :input_html => { :value => random_phone }
+          %td= user_form.link_to_remove "Remove"
+    %p= f.link_to_add "Add a user", :users, :data => { :target => "#users" }
+  = f.input :user_school_id, :as => :hidden,:input_html => { :value => @my_school.id }
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,42 @@
+%h1 Listing Schools
+%table
+  %thead
+    %tr
+      %th Name
+      %th Website url
+      %th Company name
+      %th Contact name
+      %th Email
+      %th Phone number
+      %th Vat number
+      %th Address
+      %th City
+      %th Post code
+      %th Note
+      %th Active
+      %th
+      %th
+      %th
+  %tbody
+    - @my_schools.each do |my_school|
+      %tr
+        %td= my_school.name
+        %td= my_school.website_url
+        %td= my_school.company_name
+        %td= my_school.contact_name
+        %td= my_school.email
+        %td= my_school.phone_number
+        %td= my_school.vat_number
+        %td= my_school.address
+        %td= my_school.city
+        %td= my_school.post_code
+        %td= my_school.note
+        %td= my_school.active
+        %td= link_to "Add a class", new_my_school_school_class_path(my_school)
+        %td= link_to "Show all class", my_school_school_classes_path(my_school)
+        %td= link_to 'Show', my_school
+        %td= link_to 'Edit', edit_my_school_path(my_school)
+        %td= link_to 'Destroy', my_school, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+  = link_to 'New My school', new_my_school_path
+  = link_to 'Back', root_path
