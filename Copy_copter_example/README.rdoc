@@ -5,5 +5,7 @@ http://aqueous-cove-4688.herokuapp.com/
 Reference 
 
 http://railscasts.com/episodes/336-copycopter?view=asciicast
+
+
 http://stackoverflow.com/questions/17606997/copycopter-server-crashing-on-heroku-rails
 
